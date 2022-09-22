@@ -1,1 +1,30 @@
-
+price_all = 0
+while True:
+    try:
+        ticket = int(input("Введите количество билетов:"))
+        if type(ticket) == int:
+            break
+    except ValueError:
+        print('Введите целое число:')
+for i in range(ticket):
+    i += 1
+    while True:
+        try:
+            age = int(input(f"Введите возраст №{i}:"))
+            if age < 18:
+                print("Билет бесплатный")
+            elif 25 > age >= 18:
+                price_all += 990
+                print("Стоимость билета: 990 руб.")
+            else:
+                price_all += 1390
+                print("Стоимость билета: 1390 руб.")
+            if type(age) == int:
+                break
+        except ValueError:
+            print("Введите целое число:")
+if ticket > 3:
+    price_all = price_all - ((price_all/100)*10)
+    print(f"Сумма к оплате {price_all} руб. с учетом 10%-ой скидки за регистрацию больше 3-х человек")
+else:
+    print(f"Сумма к оплате {price_all} руб.")
